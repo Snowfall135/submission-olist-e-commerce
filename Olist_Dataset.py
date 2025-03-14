@@ -52,7 +52,9 @@ def create_rfm(df):
     rfm.drop('order_purchase_timestamp', axis=1, inplace=True)
     return rfm
 
-all_df = pd.read_csv('all_df.csv')
+current_dir = os.path.dirname(__file__)
+file_path = os.path.join(current_dir, "all_df.csv")
+all_df = pd.read_csv(file_path)
 
 datetime_columns = ('order_purchase_date', 'order_purchase_timestamp')
 all_df.sort_values(by='order_purchase_date', inplace=True)
