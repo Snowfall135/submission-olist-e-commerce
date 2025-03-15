@@ -5,6 +5,7 @@ import pandas as pd
 import seaborn as sns
 from babel.numbers import format_currency
 import datetime
+import os
 
 sns.set(style='dark')
 
@@ -52,7 +53,7 @@ def create_rfm(df):
     rfm.drop('order_purchase_timestamp', axis=1, inplace=True)
     return rfm
 
-all_df = os.path.join(os.path.dirname(__file__), "all_df.csv")
+all_df = os.path.join(os.getcwd(), "all_df.csv")
 
 datetime_columns = ('order_purchase_date', 'order_purchase_timestamp')
 all_df.sort_values(by='order_purchase_date', inplace=True)
